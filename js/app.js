@@ -14,7 +14,7 @@ function userNumbersGet () {
     let i = 0
     while (userNumbers.length < 5) {
         const number = parseInt(prompt('Digita numero' + '\n' + (i + 1)));
-            if (!userNumbers.includes(number)) {
+            if (!userNumbers.includes(number) || !isNaN(number)) {
                 userNumbers.push(number);
                 i++
                 // console.log(userNumbers)
@@ -50,8 +50,8 @@ function getTheArray (array1,array2) {
             k = false
         } 
         console.log(k)
-        return k
     });
+    return k 
 }
         
 
