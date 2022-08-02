@@ -29,26 +29,41 @@ function userNumbersGet () {
 }
 
 // funzione che confronta i due array 
+// function getTheArray (array1,array2) {
+//     let i = 0;
+//     array1.forEach(element => {
+//         console.log(element, array2[i])
+//         if (element === array2[i]) {
+//             i++
+//             return true
+//         } else {
+//             return false
+//         }
+//     });
+// }
+
 function getTheArray (array1,array2) {
-    let i = 0;
-    array1.forEach(element => {
+    let k = true
+    array1.forEach((element, i) => {
         console.log(element, array2[i])
-        if (element === array2[i]) {
-            i++
-            return true
-        } else {
-            return false
-        }
-        
+        if (element !== array2[i]) {
+            k = false
+        } 
+        console.log(k)
+        return k
     });
-            
 }
+        
+
+
+        
+            
 // funzione di fine gioco
 function endGame (array) {
     console.log(array,correctNumbers);
     const end = getTheArray(array,correctNumbers);
     console.log(end);
-    if (end) {
+    if (end === true) {
         alert('HAI VINTO')
     } else {
         alert('HAI PERSO')
