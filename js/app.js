@@ -1,6 +1,61 @@
 // console.log('yo')
+// creo il mio array con i numeri corretti
+const correctNumbers = randomNumberAlert(5);
+alert(correctNumbers);
+console.log(correctNumbers)
 
-alert(randomNumberAlert())
+setTimeout (userNumbersGet(), 30000);
+
+
+// Funzione che mi crea un array con i numeri digitati
+
+function userNumbersGet () {
+    let userNumbers = [];
+    let i = 0
+    while (userNumbers.length < 5) {
+        const number = parseInt(prompt('Digita numero' + '\n' + (i + 1)));
+            if (!userNumbers.includes(number)) {
+                userNumbers.push(number);
+                i++
+                // console.log(userNumbers)
+            } else {
+                alert('Inserisci Numeri Validi')
+            }
+        }
+        console.log(userNumbers);
+        // return userNumbers
+        endGame(userNumbers);
+        
+}
+
+// funzione che confronta i due array 
+function getTheArray (array1,array2) {
+    let i = 0;
+    array1.forEach(element => {
+        console.log(element, array2[i])
+        if (element === array2[i]) {
+            i++
+            return true
+        } else {
+            return false
+        }
+        
+    });
+            
+}
+// funzione di fine gioco
+function endGame (array) {
+    console.log(array,correctNumbers);
+    const end = getTheArray(array,correctNumbers);
+    console.log(end);
+    if (end) {
+        alert('HAI VINTO')
+    } else {
+        alert('HAI PERSO')
+    }
+}
+    
+    
 
 // funzione per generare un numero casuale da un min a un max
 function getRandomIntInclusive(min, max) {
@@ -10,9 +65,9 @@ function getRandomIntInclusive(min, max) {
 }
 
 // mi genero numeri randomici che non siano uguali tra loro
-function randomNumberAlert() {
+function randomNumberAlert(max) {
     const numbers = [];
-    while (numbers.length < 5) {
+    while (numbers.length < max) {
         // invoco la funzione per i numeri random
         const n = getRandomIntInclusive(1,100);
         // controllo se il numero generato non è nell'array e lo pusho
@@ -20,7 +75,7 @@ function randomNumberAlert() {
             numbers.push(n);
         }
     }
-    // console.log(numbers)
-    return numbers
+    // console.log(numbers);
+    return numbers;
 }
     
