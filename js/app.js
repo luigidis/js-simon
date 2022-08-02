@@ -4,7 +4,7 @@ const correctNumbers = randomNumberAlert(5);
 alert(correctNumbers);
 console.log(correctNumbers)
 
-setTimeout (userNumbersGet(), 30000);
+setTimeout (userNumbersGet, 30000);
 
 
 // Funzione che mi crea un array con i numeri digitati
@@ -14,7 +14,7 @@ function userNumbersGet () {
     let i = 0
     while (userNumbers.length < 5) {
         const number = parseInt(prompt('Digita numero' + '\n' + (i + 1)));
-            if (!userNumbers.includes(number) || !isNaN(number)) {
+            if (!userNumbers.includes(number) && !isNaN(number)) {
                 userNumbers.push(number);
                 i++
                 // console.log(userNumbers)
@@ -22,56 +22,35 @@ function userNumbersGet () {
                 alert('Inserisci Numeri Validi')
             }
         }
-        console.log(userNumbers);
+        // console.log(userNumbers);
         // return userNumbers
         endGame(userNumbers);
         
 }
-
-// funzione che confronta i due array 
-// function getTheArray (array1,array2) {
-//     let i = 0;
-//     array1.forEach(element => {
-//         console.log(element, array2[i])
-//         if (element === array2[i]) {
-//             i++
-//             return true
-//         } else {
-//             return false
-//         }
-//     });
-// }
-
+// funzione per confrontare due array
 function getTheArray (array1,array2) {
     let k = true
     array1.forEach((element, i) => {
-        console.log(element, array2[i])
+        // console.log(element, array2[i]);
         if (element !== array2[i]) {
             k = false
         } 
-        console.log(k)
+        // console.log(k);
     });
     return k 
 }
-        
 
-
-        
-            
 // funzione di fine gioco
 function endGame (array) {
-    console.log(array,correctNumbers);
+    // console.log(array,correctNumbers);
     const end = getTheArray(array,correctNumbers);
-    console.log(end);
+    // console.log(end);
     if (end === true) {
         alert('HAI VINTO')
     } else {
         alert('HAI PERSO')
     }
 }
-    
-    
-
 // funzione per generare un numero casuale da un min a un max
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
@@ -94,3 +73,11 @@ function randomNumberAlert(max) {
     return numbers;
 }
     
+    
+
+    
+        
+
+
+        
+            
